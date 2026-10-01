@@ -1,0 +1,10 @@
+{
+  // Solution-style tsconfig: it owns no compiler options itself, only the list
+  // of project references that `tsc -b` builds. This lets the app code and the
+  // build tooling (vite.config.ts) be type-checked under different settings.
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

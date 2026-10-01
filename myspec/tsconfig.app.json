@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    // Where `tsc -b` caches incremental build state for this project.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Browser output target. Vite does the actual transpiling and downlevelling;
+    // this only affects type checking and editor tooling.
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+
+    // Available standard library types. "DOM.Iterable" is what makes spreading
+    // and iterating over things like FormData type-safe.
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    "allowJs": false,
+
+    // Skip type checking of .d.ts files inside node_modules: faster builds, and
+    // third-party type errors are not ours to fix.
+    "skipLibCheck": true,
+
+    // Default-import interoperability for CommonJS packages (e.g. lucide-react).
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // The main quality gate: null-safety, implicit-any errors, and
+    // strict function variance. Every type in src/types/ is written to satisfy
+    // this, which is why a plain `JSON.parse` result needs an explicit cast.
+    "strict": true,
+
+    "forceConsistentCasingInFileNames": true,
+
+    "module": "ESNext",
+
+    // "Bundler" resolution matches how Vite actually resolves imports and
+    // allows extensionless relative paths like './App'.
+    "moduleResolution": "Bundler",
+
+    "resolveJsonModule": true,
+
+    // Require `import type` for type-only imports, so they are fully erased at
+    // build time. Matches the `import type { Job } from '../types/job'` style
+    // used throughout src/.
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    // Type-check only. Vite runs esbuild to emit the real JavaScript.
+    "noEmit": true,
+
+    // Enables the automatic JSX runtime, so components do not import React.
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}

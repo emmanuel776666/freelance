@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // Slightly newer target than the app project: this config only covers
+    // vite.config.ts, which runs in Node rather than in the browser.
+    "target": "ES2023",
+    "lib": ["ES2023"],
+
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+
+    // Vite loads the config through a TS-aware loader, so `.ts` extensions may
+    // appear in import specifiers.
+    "allowImportingTsExtensions": true,
+
+    // Type-only imports must be marked with `import type`, keeping them
+    // erasable even though this file is executed rather than type-checked only.
+    "verbatimModuleSyntax": true,
+
+    // Treat every file as its own module so Vite can hot-reload the config
+    // without stale cross-file state.
+    "moduleDetection": "force",
+
+    // Vite performs the emitting here, not tsc.
+    "noEmit": true,
+
+    "strict": true
+  },
+  "include": ["vite.config.ts"]
+}
