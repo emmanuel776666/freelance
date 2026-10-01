@@ -20,6 +20,21 @@ npm run preview
 
 `npm run build` runs `tsc -b` (type-check) before `vite build`, so a type error fails the build rather than shipping.
 
+## Deploy to Vercel
+
+The app lives in the `myspec/` subdirectory of the repository, so the
+repository root has a `vercel.json` that points Vercel at it
+(`rootDirectory: "myspec"`) and sets `npm install` / `npm run build` /
+`dist`. If you import the project in the Vercel dashboard, set **Root
+Directory** to `myspec` instead of accepting the repo default.
+
+Client-side routes need a catch-all rewrite so a deep link like
+`/talent/abc` serves `index.html` instead of 404ing. Both `vercel.json`
+files do this, so no dashboard configuration is needed for it.
+
+`dist/` and `node_modules/` are git-ignored, and `myspec/.vercelignore`
+keeps them out of the upload as well.
+
 ## Included flows
 
 - Landing page with marketplace search
